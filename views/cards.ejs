@@ -1,0 +1,63 @@
+<%- include('partials/index-header.ejs') %>
+   <!--====== PAGE TITLE PART START ======-->
+
+   <div class="page-title-area bg_cover" style=" background: linear-gradient(to right, #ff4332, #B2BEB5),url(assets/images/about.jpg) no-repeat top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-title-content">
+                    <h3 class="title">News</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">News</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====== PAGE TITLE PART ENDS ======-->
+
+<!--====== NEWS 2 PART START ======-->
+
+<section class="news-2-area news-page">
+    <div class="container">
+        <div class="row justify-content-center"> 
+          <%if( blogs.length == 0){%>
+            Nothing here.
+          <%}else{%>
+          <%blogs.forEach(i => {%> <% let newDate = new Date(i.date) %> <%let days =
+            ['Sunday', 'Monday', 'Tuesday','Wednesday', 'Thursday','Friday',
+            'Saturday']%> <%let currentDay = newDate.getDay()%> <% let months =
+            ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'];%>
+    
+            
+    
+  <div class="col-lg-4 col-md-7 col-sm-9">
+    <div class="news-item mt-30">
+        <div class="news-thumb">
+            <img  style = "width: 370px; height: 316px;" src="../assets<%=i.pic%>" alt="news">
+        </div>
+        <div class="news-content">
+            <ul>
+             
+                <li><i class="fa fa-clock-o"></i><%=Math.round(i.description.length/800) %>mins</li>
+            </ul>
+            <h3 class="title"> <%=i.blogName%></h3>
+            <a  href =  "/<%=i.blogName%>/<%=i._id%>"><i class="flaticon-right-arrow"></i></a>
+        </div>
+    </div>
+</div>            
+   <%})%>
+
+<%}%>
+        </div>
+    </div>
+</section>
+
+
+<%- include('partials/index-footer.ejs') %>

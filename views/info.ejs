@@ -1,0 +1,98 @@
+<%-include('partials/index-header')%>
+ <!--====== PAGE TITLE PART START ======-->
+
+ <div class="page-title-area bg_cover" style=" background: linear-gradient(to right, #ff4332, #B2BEB5),url(assets/images/about.jpg) no-repeat top center;">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="page-title-content">
+                  <h3 class="title">News</h3>
+                  <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">News</li>
+                      </ol>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!--====== PAGE TITLE PART ENDS ======-->
+
+<!--====== BLOG DETAILS PART ENDS ======-->
+
+
+<section class="blog-details" style="background-color: #E8E8E8">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-8">
+              <div class="blog-details__main">
+                  <div class="blog-details__image">
+                      <img src="../assets<%=blog.pic%>" class="width:770px; height:464px;" alt="thumb">
+                  </div><!-- /.blog-details__image -->
+                  <div class="blog-details__content">
+                      <div class="blog-one__meta">
+                          <a href="#"><i class="fa fa-user-o"></i> by admin</a>
+                      </div><!-- /.blog-one__meta -->
+                      <h3><%=blog.blogName%></h3>
+                      <p style="line-height: 2; white-space: pre-wrap;"><%=blog.description%></p>
+                  </div><!-- /.blog-details__content -->
+                  <div class="blog-details__meta">
+                     
+              </div><!-- /.blog-details__main -->
+
+           
+
+              <div class="comment-one">
+                  <h3 class="comment-one__block-title"><%=comments.length%> Comments</h3><!-- /.comment-one__block-title -->
+                  <%comments.forEach(i => {%>
+                  <div class="comment-one__single">
+                      <div class="comment-one__image">
+                          <img src="/assets/images/person-icon.jpg" style="height: 50px; width: 50px;" alt="">
+                      </div><!-- /.comment-one__image -->
+                      <div class="comment-one__content">
+                          <h3><%=i.fullName%> <span class="comment-one__date">20 April, 2020</span></h3>
+                          
+                          <p><%=i.message%> </p>
+                      </div><!-- /.comment-one__content -->
+
+                      <!-- /.thm-btn comment-one__btn -->
+                  </div><!-- /.comment-one__single -->
+                  <%})%>
+              </div><!-- /.comment-one -->
+              <div class="comment-form">
+                  <h3 class="comment-one__block-title">Leave a Comment</h3><!-- /.comment-one__block-title -->
+                  <form  action="/comment" method="post" class="contact-one__form">
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="input-box">
+                                  <input type="text" placeholder="name" name="name">
+                              </div>
+                          </div><!-- /.col-lg-6 -->
+                          <div class="col-lg-6">
+                              <div class="input-box">
+                                  <input type="text" placeholder="email" name="email">
+                              </div>
+                          </div><!-- /.col-lg-6 -->
+                          </div><!-- /.col-lg-6 -->
+                          <div class="col-lg-12">
+                              <div class="input-box">
+                                  <textarea placeholder="Message" name="message"></textarea>
+                              </div>
+                          </div><!-- /.col-lg-12 -->
+                          <div class="col-lg-12 text-left">
+                              <div class="input-box">
+                                  <button type="submit" class="main-btn main-btn-2">Send message</button>
+                              </div>
+                              <!-- /.thm-btn contact-one__btn -->
+                          </div><!-- /.col-lg-12 -->
+                      </div><!-- /.row -->
+                  </form><!-- /.contact-one__form -->
+              </div><!-- /.comment-form -->
+          </div><!-- /.col-lg-8 -->
+          
+</section><!-- /.blog-details -->
+
+<%-include('partials/index-footer')%>
